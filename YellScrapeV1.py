@@ -33,10 +33,9 @@ headers = {
 
 data_list = []
 for x in postkeys:
-    comloc = x
     print(" Searching " + x + " for " + comtype + " companies")
     for y in postkeynum:
-        url = 'https://www.yell.com/ucs/UcsSearchAction.do?keywords=' + comtype + '&pageNum=' + str(y) + '&location=' + comloc
+        url = 'https://www.yell.com/ucs/UcsSearchAction.do?keywords=' + comtype + '&pageNum=' + str(y) + '&location=' + x
         data_list.append(url)
         for item in data_list:
             site = requests.get(item, headers=headers)
@@ -73,7 +72,7 @@ for x in postkeys:
                     busweb = busweb.attrs['href']
                 print(busweb)
                 f.writerow([busname, bustype, busnumber, busadd, buslocal, buspost, busweb])
-
+            data_list = []
 
         pagesnum += 1
         print(" Finsihed Page " + str(y) + ". For " + x + " . " + str(listinnum) + " listings so far. Moving To Next Page")
