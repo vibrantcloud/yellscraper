@@ -55,7 +55,7 @@ for x in postkeys:
                     busadd = 'None'
                 else:
                     busadd = busadd.text.replace(',',' ')
-                buslocal = question.find('span', attrs={"itemprop": "addressLocality"})
+                buslocal = question.find('span', 
                 if buslocal is None:
                     buslocal = 'None'
                 else:
